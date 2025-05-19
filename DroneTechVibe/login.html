@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DroneTechVibe - Accedi o Registrati</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>DroneTechVibe</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="login.html" class="active">Accedi</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <h2>Accedi o Registrati</h2>
+        <p>Accedi al tuo account o crea un nuovo account per iniziare</p>
+    </section>
+
+    <section class="page-content">
+        <div class="login-container" style="display: flex; justify-content: space-between; max-width: 1000px; margin: 0 auto;">
+            <!-- Form di Login -->
+            <div class="form-container" style="flex: 1;">
+                <h3 class="form-title">Accedi</h3>
+                <form id="loginForm" action="php/login.php" method="post">
+                    <div class="form-group">
+                        <label for="login-email">Email</label>
+                        <input type="email" id="login-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password">Password</label>
+                        <input type="password" id="login-password" name="password" required>
+                    </div>
+                    <button type="submit" class="form-btn">Accedi</button>
+                    <div class="form-footer">
+                        <p>Non hai un account? <a href="#" id="showRegister">Registrati</a></p>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Form di Registrazione -->
+            <div class="form-container" style="flex: 1; display: none;" id="registerContainer">
+                <h3 class="form-title">Registrati</h3>
+                <form id="registerForm" action="php/register.php" method="post">
+                    <div class="form-group">
+                        <label for="nome">Nome</label>
+                        <input type="text" id="nome" name="nome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cognome">Cognome</label>
+                        <input type="text" id="cognome" name="cognome" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-email">Email</label>
+                        <input type="email" id="register-email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="register-password">Password</label>
+                        <input type="password" id="register-password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Telefono</label>
+                        <input type="tel" id="telefono" name="telefono" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="indirizzo">Indirizzo</label>
+                        <input type="text" id="indirizzo" name="indirizzo" required>
+                    </div>
+                    <button type="submit" class="form-btn">Registrati</button>
+                    <div class="form-footer">
+                        <p>Hai già un account? <a href="#" id="showLogin">Accedi</a></p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DroneTechVibe</h3>
+                <p>La tua destinazione per droni di alta qualità e servizi professionali.</p>
+                <p>Pilotiamo il futuro insieme.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3>Contattaci</h3>
+                <p>Email: info@dronetechvibe.com</p>
+                <p>Telefono: +39 123 456 7890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 DroneTechVibe. Tutti i diritti riservati.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Script per alternare tra login e registrazione
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginContainer = document.querySelector('.form-container');
+            const registerContainer = document.getElementById('registerContainer');
+            const showRegisterLink = document.getElementById('showRegister');
+            const showLoginLink = document.getElementById('showLogin');
+            
+            showRegisterLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginContainer.style.display = 'none';
+                registerContainer.style.display = 'block';
+            });
+            
+            showLoginLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                registerContainer.style.display = 'none';
+                loginContainer.style.display = 'block';
+            });
+        });
+    </script>
+    <script src="js/script.js"></script>
+</body>
+</html>
